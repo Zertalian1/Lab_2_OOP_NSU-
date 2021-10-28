@@ -12,7 +12,7 @@ bool SortBlock::exec(vector<string>* input, vector<string>* output, unsigned int
     return true;
 }
 
-ReplaceBlock::ReplaceBlock(string word1, string word2)
+ReplaceBlock::ReplaceBlock(const string& word1,const string& word2)
 {
     word1_ = word1;
     word2_ = word2;
@@ -34,7 +34,7 @@ bool ReplaceBlock::exec(vector<string>* input, vector<string>* output, unsigned 
     return true;
 }
 
-GrepBlock::GrepBlock(string word)
+GrepBlock::GrepBlock(const string& word)
 {
     word_ = word;
 }
@@ -57,7 +57,7 @@ bool GrepBlock::exec(vector<string>* input, vector<string>* output, unsigned int
     return true;
 }
 
-DumpBlock::DumpBlock(string filename)
+DumpBlock::DumpBlock(const string& filename)
 {
     filename_ = filename;
 }
