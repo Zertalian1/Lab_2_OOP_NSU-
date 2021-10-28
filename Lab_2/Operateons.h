@@ -8,7 +8,7 @@
 class SortBlock : public Worker
 {
 public:
-    bool exec(vector<string>* input, vector<string>* output,  unsigned int index) override;// индекс для навигации
+    bool exec(vector<string>* input, vector<string>* output,  unsigned int index) override;// ГЁГ­Г¤ГҐГЄГ± Г¤Г«Гї Г­Г ГўГЁГЈГ Г¶ГЁГЁ
 };
 
 class ReplaceBlock : public Worker
@@ -17,7 +17,7 @@ private:
     string word1_;
     string word2_;
 public:
-    ReplaceBlock(string word1, string word2);
+    ReplaceBlock(const string& word1,const string& word2);
     bool exec(vector<string>* input, vector<string>* output, unsigned int index) override;
 };
 
@@ -26,7 +26,7 @@ class GrepBlock : public Worker
 private:
     string word_;
 public:
-    GrepBlock(string word);
+    GrepBlock(const string& word);
     bool exec(vector<string>* input, vector<string>* output, unsigned int index) override;
 };
 
@@ -35,7 +35,7 @@ class DumpBlock : public Worker
 private:
     string filename_;
 public:
-    DumpBlock(string filename);
+    DumpBlock(const string& filename);
     bool exec(vector<string>* input, vector<string>* output, unsigned int index) override;
 };
 
