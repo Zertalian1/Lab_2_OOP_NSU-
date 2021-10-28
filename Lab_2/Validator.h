@@ -11,7 +11,7 @@ using namespace std;
 class Validator
 {
 public:
-    static void badFile(string file);
+    static void badFile(const string& file);
 };
 
 
