@@ -3,51 +3,22 @@ make Validator			for wrong file way									+
 make Reader, Writer															+
 make Operations			operations											+
 /*>
-readfile <filename>  – считывание текстового файла в память, целиком.Вход – отсутствует, выход – текст.
+readfile <filename>  вЂ“ Г±Г·ГЁГІГ»ГўГ Г­ГЁГҐ ГІГҐГЄГ±ГІГ®ГўГ®ГЈГ® ГґГ Г©Г«Г  Гў ГЇГ Г¬ГїГІГј, Г¶ГҐГ«ГЁГЄГ®Г¬.Г‚ГµГ®Г¤ вЂ“ Г®ГІГ±ГіГІГ±ГІГўГіГҐГІ, ГўГ»ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ.
 
-writefile <filename> – запись текста в файл.Вход – текст, выход – отсутствует.
+writefile <filename> вЂ“ Г§Г ГЇГЁГ±Гј ГІГҐГЄГ±ГІГ  Гў ГґГ Г©Г«.Г‚ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ, ГўГ»ГµГ®Г¤ вЂ“ Г®ГІГ±ГіГІГ±ГІГўГіГҐГІ.
 
-grep <word> – выбор из входного текста строк, разделенных символами переноса строки, содержащих заданное слово <word>.Вход – текст, выход – текст.
+grep <word> вЂ“ ГўГ»ГЎГ®Г° ГЁГ§ ГўГµГ®Г¤Г­Г®ГЈГ® ГІГҐГЄГ±ГІГ  Г±ГІГ°Г®ГЄ, Г°Г Г§Г¤ГҐГ«ГҐГ­Г­Г»Гµ Г±ГЁГ¬ГўГ®Г«Г Г¬ГЁ ГЇГҐГ°ГҐГ­Г®Г±Г  Г±ГІГ°Г®ГЄГЁ, Г±Г®Г¤ГҐГ°Г¦Г Г№ГЁГµ Г§Г Г¤Г Г­Г­Г®ГҐ Г±Г«Г®ГўГ® <word>.Г‚ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ, ГўГ»ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ.
 
-sort – лексикографическая сортировка входного набора строк.Вход – текст, выход – текст.
+sort вЂ“ Г«ГҐГЄГ±ГЁГЄГ®ГЈГ°Г ГґГЁГ·ГҐГ±ГЄГ Гї Г±Г®Г°ГІГЁГ°Г®ГўГЄГ  ГўГµГ®Г¤Г­Г®ГЈГ® Г­Г ГЎГ®Г°Г  Г±ГІГ°Г®ГЄ.Г‚ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ, ГўГ»ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ.
 
-replace <word1> <word2> – замена слова <word1> словом <word2> во входном тексте.Вход – текст, выход – текст.
+replace <word1> <word2> вЂ“ Г§Г Г¬ГҐГ­Г  Г±Г«Г®ГўГ  <word1> Г±Г«Г®ГўГ®Г¬ <word2> ГўГ® ГўГµГ®Г¤Г­Г®Г¬ ГІГҐГЄГ±ГІГҐ.Г‚ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ, ГўГ»ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ.
 
-dump <filename> -сохранить пришедший текст в указанном файле и передать дальше.Вход – текст, выход – текст.
+dump <filename> -Г±Г®ГµГ°Г Г­ГЁГІГј ГЇГ°ГЁГёГҐГ¤ГёГЁГ© ГІГҐГЄГ±ГІ Гў ГіГЄГ Г§Г Г­Г­Г®Г¬ ГґГ Г©Г«ГҐ ГЁ ГЇГҐГ°ГҐГ¤Г ГІГј Г¤Г Г«ГјГёГҐ.Г‚ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ, ГўГ»ГµГ®Г¤ вЂ“ ГІГҐГЄГ±ГІ.
 <*/
 BlokProgram																	+
 
 make Parser				main part, part where hapend magic					+
 
-ошибки работают не коректно													+
+Г®ГёГЁГЎГЄГЁ Г°Г ГЎГ®ГІГ ГѕГІ Г­ГҐ ГЄГ®Г°ГҐГЄГІГ­Г®													+
 static void writeFile(string, vector<string>&);
 static void readFile(string, vector<string>&);
-/*void FileWriterBlock::writeFile(string output, vector<string>& text) ///////////////
-{
-    ofstream fos(output);
-
-    if (!fos)
-        Validator::badFile("File " + output + " cannot opened!");
-
-    for (const auto& i : text)
-        fos << i << endl;
-
-    fos.close();
-}
-
-void FileReaderBlock::readFile(string input, vector<string>& output)
-{
-    /*if (!Validator::fileExists(input))
-        Validator::badFile("File " + input + " cannot exists!");*/
-
-        /*   string line;                                                     ///////////////
-           ifstream fis(input);
-
-           if (!fis)
-               Validator::badFile("File " + input + " cannot opened!");
-
-           while (getline(fis, line))
-               output.push_back(line);
-
-           fis.close();
-       }*/
