@@ -20,5 +20,3 @@ BlokProgram																	+
 make Parser				main part, part where hapend magic					+
 
 îøèáêè ðàáîòàþò íå êîðåêòíî													+
-static void writeFile(string, vector<string>&);
-static void readFile(string, vector<string>&);
